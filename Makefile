@@ -4,4 +4,16 @@ setup:
 	fvm flutter pub run build_runner build --delete-conflicting-outputs
 	fvm flutter gen-l10n
 	fvm flutter pub run flutter_launcher_icons
-    dart run flutter_native_splash:create
+	dart run flutter_native_splash:create
+
+.PHONY: generate
+generate:
+	fvm flutter pub get
+	fvm flutter gen-l10n
+	fvm flutter pub run flutter_launcher_icons
+	dart run flutter_native_splash:create
+
+.PHONY: gen
+gen:
+	fvm flutter pub get
+	fvm flutter pub run build_runner build --delete-conflicting-outputs
