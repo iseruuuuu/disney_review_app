@@ -23,7 +23,7 @@ class Users {
   String? instagram;
   String? twitter;
 
-  factory Users.fromJson({
+  Users fromJson({
     required Map<String, dynamic> map,
     required String id,
   }) {
