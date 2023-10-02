@@ -46,3 +46,10 @@ app.*.map.json
 
 # .env
 .env
+
+.fvm/flutter_sdk
+
+# freezed
+*.freezed.dart
+*.g.dart
+*.mocks.dart
