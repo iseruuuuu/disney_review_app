@@ -49,7 +49,7 @@ app.*.map.json
 
 .fvm/flutter_sdk
 
-# freezed
 *.freezed.dart
 *.g.dart
 *.mocks.dart
+lib/l10n/*.dart
