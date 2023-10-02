@@ -19,7 +19,7 @@ class Posts {
   final DateTime createdTime;
   final bool isSpoiler;
 
-  factory Posts.fromJson({
+  Posts fromJson({
     required Map<String, dynamic> map,
     required String id,
   }) {

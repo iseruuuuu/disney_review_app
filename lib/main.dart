@@ -4,7 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
+  await dotenv.load();
   await Supabase.initialize(
     url: dotenv.get('VAR_URL'),
     anonKey: dotenv.get('VAR_ANONKEY'),
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -38,36 +38,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final stream =
-        Supabase.instance.client.from('posts').stream(primaryKey: ['id']);
     return Scaffold(
-      body: StreamBuilder<List<Map<String, dynamic>>>(
-        stream: stream,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(
-              child: Text('no data'),
-            );
-          }
-          final posts = snapshot.data!;
-          return ListView.builder(
-            itemCount: posts.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(posts[index]['name']),
-              );
-            },
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          setState(() {});
-          await Supabase.instance.client.from('posts').insert(
-            {'name': 'iseki'},
-          );
-        },
-        child: const Icon(Icons.add),
+      appBar: AppBar(),
+      body: const Column(
+        children: [
+          Text('aaa'),
+        ],
       ),
     );
   }
